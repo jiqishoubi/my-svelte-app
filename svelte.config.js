@@ -1,9 +1,9 @@
 import adapter from '@sveltejs/adapter-auto'
 import { vitePreprocess } from '@sveltejs/kit/vite'
-import { Config as IConfig } from '@sveltejs/kit'
+// import { Config as IConfig } from '@sveltejs/kit'
 
 /** @type {import('@sveltejs/kit').Config} */
-const config: IConfig = {
+const config = {
   // Consult https://kit.svelte.dev/docs/integrations#preprocessors
   // for more information about preprocessors
   preprocess: vitePreprocess(),
@@ -14,8 +14,11 @@ const config: IConfig = {
     // See https://kit.svelte.dev/docs/adapters for more information about adapters.
     adapter: adapter(),
     files: {
-      routes: 'src/pages',
+      routes: 'src/pages', // 路由目录
     },
+    alias: {
+      '@/*': 'src/*',
+  }
   },
 }
 
